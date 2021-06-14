@@ -1,0 +1,106 @@
+<div class="mydiv">
+<div class="row formrow">
+    <div class="col-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                State
+            <span>   
+            <select class="form-select" aria-label="Default select example" (change)="onChange($event)">
+                    <option selected>Select State</option>
+                    <option  *ngFor="let state of states" [value]="state.state_id">{{state.state_name}}</option>
+            </select>
+        </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row formrow">
+    <div class="col-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                District
+            <span>   
+            <select class="form-select" aria-label="Default select example" (change)="onDistrictChange($event)">
+                    <option selected>select district</option>
+                    <option  *ngFor="let district of districts" [value]="district.district_id">{{district.district_name}}</option>
+            </select>
+        </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+
+<div class="row mb-2 formrow">
+    <div class="col-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Date</label>
+                    <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="date" placeholder="select date">
+                  </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+<div class="row formrow">
+    <div class="col-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10 text-center"><button class="btn btn-primary btn-lg" (click)="onSubmit()">Search</button></div>
+            
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</div>
+<hr>
+
+<alert type="danger" *ngIf="!slots && isSearched">
+    <strong>Oh snap!</strong>No record Found
+  </alert>
+
+<table class="table" *ngIf="slots">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Center-Id</th>
+        <th scope="col">CenterName</th>
+        <th scope="col">Address</th>
+        <th scope="col">City</th>
+        <th scope="col">date</th>
+        <th scope="col">from</th>
+        <th scope="col">to</th>
+        <th scope="col">Fee</th>
+        <th scope="col">Available Capacity</th>
+        <th scope="col">Vaccine</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let slot of slots">
+        <th scope="row">{{slot.center_id}}</th>
+        <td>{{slot.name}}</td>
+        <td>{{slot.addess}}</td>
+        <td>{{slot.district_name}}</td>
+        <td>{{slot.date}}</td>
+        <td>{{slot.from}}</td>
+        <td>{{slot.to}}</td>
+        <td>{{slot.fee}}</td>
+        <td>{{slot.available_capacity}}</td>
+        <td>{{slot.vaccine}}</td>
+      
+    </tbody>
+  </table>
+  

@@ -1,0 +1,23 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Center-Id</th>
+        <th scope="col">CenterName</th>
+        <th scope="col">City</th>
+        <th scope="col">state</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let slot of slots">
+        <th scope="row">{{slot.center_id}}</th>
+        <td>{{slot.name}}</td>
+        <td>{{slot.district_name}}</td>
+        <td>{{slot.state_name}}</td>
+        <td>{{slot.from}}</td>
+        <td>{{slot.to}}</td>
+        <td>{{slot.fee}}</td>
+        <td>{{slot.available_capacity}}</td>
+        <td>{{slot.vaccine}}</td>
+      
+    </tbody>
+  </table>
